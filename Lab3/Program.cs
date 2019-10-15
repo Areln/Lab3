@@ -11,7 +11,8 @@ namespace Lab3
             while (runAgain != "n")
             {
                 Console.Write("Please enter a number between 1 and 100: ");
-                int userInput = int.Parse(Console.ReadLine());
+                int userInput;
+                int.TryParse(Console.ReadLine(), out userInput);
 
                 //if userInput is even
                 if (userInput >= 1 && userInput <= 100)
@@ -45,7 +46,9 @@ namespace Lab3
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Input was not between 1 and 100");
+                    Console.ResetColor();
                 }
 
                 Console.WriteLine("Run Again?(y/n)");
